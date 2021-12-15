@@ -42,8 +42,9 @@ module.exports = {
     loaderOptions: {
       sass: {
         //以下两种都可以
-        prependData: `@import "~@a/scss/entrance.scss";`
-        //prependData: `@import "./src/assets/scss/entrance.scss";`
+        //prependData: `@import "~@a/scss/entrance.scss";`
+        additionalData: `@import "./src/assets/scss/entrance.scss";`
+        //implementation: require('~@a/scss/entrance.scss'), // This line must in sass option
       },
       postcss: {
         plugins: [
