@@ -1,22 +1,22 @@
 /**
  * 权限配置文件
  */
-import router from "./router"
-import store from "./store"
-import { Message } from "element-ui"
+import router from './router'
+import store from './store'
+import { Message } from 'element-ui'
 
 //白名单
-const whiteList = ["/login", "/404"]
+const whiteList = ['/login', '/404']
 
 //nprogress
-import NProgress from "nprogress"
-import "nprogress/nprogress.css"
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 //添加路由测试
-router.addRoute("Home", {
-  path: "/test",
-  name: "test",
-  component: () => import("@/views/module_1/a.vue")
+router.addRoute('Home', {
+  path: '/test',
+  name: 'test',
+  component: () => import('@/views/module_1/a.vue'),
 })
 console.log(21, router.getRoutes())
 
@@ -29,13 +29,13 @@ router.beforeEach((to, from, next) => {
 
   console.log(24, token)
   if (token) {
-    let requireAuth = to.matched.some((record) => record.meta.requireAuth)
+    let requireAuth = to.matched.some(record => record.meta.requireAuth)
     if (requireAuth) {
-      next("/login")
+      next('/login')
       Message({
         showClose: true,
         message: `没有权限访问${to.name}页面,要访问请配置requireAuth`,
-        type: "warning"
+        type: 'warning',
       })
     } else {
       next()

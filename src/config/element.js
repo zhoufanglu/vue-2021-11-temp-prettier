@@ -1,10 +1,8 @@
-import Vue from "vue"
-import "@/assets/scss/element/element-variables.scss"
+import Vue from 'vue'
+import '@/assets/scss/element/element-variables.scss'
 
-import { Button, Select, Message, ColorPicker } from "element-ui"
+import { Button, Select, Message, Loading } from 'element-ui'
 
-Vue.use(Button)
-Vue.use(Select)
-Vue.use(ColorPicker)
+Vue.use(Button).use(Select).use(Loading)
 
 Vue.prototype.$message = Message

@@ -1,31 +1,31 @@
-import Vue from "vue"
-import VueRouter from "vue-router"
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
-import Home from "@/views/Home"
+import Home from '@/views/Home'
 
-import module_1 from "@/router/module/module_1"
-import module_2 from "@/router/module/module_2"
+import module_1 from '@/router/module/module_1'
+import module_2 from '@/router/module/module_2'
 
 Vue.use(VueRouter)
 
 const constantRoutes = [
   {
-    path: "/",
-    name: "Home",
+    path: '/',
+    name: 'Home',
     component: Home,
     meta: {
-      requireAuth: false // 在需要登录的路由的meta中添加响应的权限标识
-    }
+      requireAuth: false, // 在需要登录的路由的meta中添加响应的权限标识
+    },
   },
   ...module_1,
-  ...module_2
+  ...module_2,
 ]
 
 const createRouter = () =>
   new VueRouter({
     // mode: 'history', // require service support
     scrollBehavior: () => ({ y: 0 }),
-    routes: constantRoutes
+    routes: constantRoutes,
   })
 
 export function resetRouter() {

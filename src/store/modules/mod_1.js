@@ -1,12 +1,12 @@
 const mod_1 = {
   state: {
     userInfo: {
-      token: "",
-      userName: "test"
+      token: '',
+      userName: 'test',
     },
     theme: {
-      color: "#409EFF"
-    }
+      color: '#409EFF',
+    },
   },
 
   mutations: {
@@ -15,14 +15,14 @@ const mod_1 = {
     },
     setTheme(state, val) {
       state.theme = val
-    }
+    },
   },
 
   actions: {
     setRiskUserInfo({ commit }, val) {
-      commit("SET_RISK_USER_INFO", val)
-    }
-  }
+      commit('SET_RISK_USER_INFO', val)
+    },
+  },
 }
 
 export default mod_1

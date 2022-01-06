@@ -1,23 +1,23 @@
-const b = () => import("@/views/module_2/b.vue")
-const theme = () => import("@/views/module_2/theme.vue")
+const b = () => import('@/views/module_2/b.vue')
+const theme = () => import('@/views/module_2/theme.vue')
 
 const module_2 = [
   {
-    path: "/b",
+    path: '/b',
     meta: {
-      requireAuth: true // 在需要登录的路由的meta中添加响应的权限标识
+      requireAuth: true, // 在需要登录的路由的meta中添加响应的权限标识
     },
-    name: "b",
-    component: b
+    name: 'b',
+    component: b,
   },
   {
-    path: "/theme",
+    path: '/theme',
     meta: {
-      requireAuth: false // 在需要登录的路由的meta中添加响应的权限标识
+      requireAuth: false, // 在需要登录的路由的meta中添加响应的权限标识
     },
-    name: "theme",
-    component: theme
-  }
+    name: 'theme',
+    component: theme,
+  },
 ]
 
 export default module_2

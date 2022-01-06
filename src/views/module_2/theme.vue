@@ -6,19 +6,19 @@
   </div>
 </template>
 <script>
-const version = require("element-ui/package.json").version
+const version = require('element-ui/package.json').version
 console.log(10, version)
-import { mapState } from "vuex"
+import { mapState } from 'vuex'
 export default {
-  name: "",
+  name: '',
   components: {},
   data() {
     return {
-      theme: "#409EFF"
+      theme: '#409EFF',
     }
   },
   computed: {
-    ...mapState({ vuexTheme: (state) => state.mod_1.theme.color })
+    ...mapState({ vuexTheme: state => state.mod_1.theme.color }),
   },
   created() {
     console.log(20, this.vuexTheme)
@@ -27,67 +27,50 @@ export default {
   methods: {
     pickerChange() {
       console.log(23, this.theme)
-      this.$store.commit("setTheme", { color: this.theme })
+      this.$store.commit('setTheme', { color: this.theme })
 
-      if (typeof this.vuexTheme !== "string") return
-      localStorage.setItem("colorPicker", this.vuexTheme)
-      const themeCluster = this.getThemeCluster(this.vuexTheme.replace("#", ""))
-      const originalCluster = this.getThemeCluster(
-        this.vuexTheme.replace("#", "")
-      )
+      if (typeof this.vuexTheme !== 'string') return
+      localStorage.setItem('colorPicker', this.vuexTheme)
+      const themeCluster = this.getThemeCluster(this.vuexTheme.replace('#', ''))
+      const originalCluster = this.getThemeCluster(this.vuexTheme.replace('#', ''))
       const getHandler = (variable, id) => {
         return () => {
-          const originalCluster = this.getThemeCluster(
-            this.vuexTheme.replace("#", "")
-          )
-          const newStyle = this.updateStyle(
-            this[variable],
-            originalCluster,
-            themeCluster
-          )
+          const originalCluster = this.getThemeCluster(this.vuexTheme.replace('#', ''))
+          const newStyle = this.updateStyle(this[variable], originalCluster, themeCluster)
 
           let styleTag = document.getElementById(id)
           if (!styleTag) {
-            styleTag = document.createElement("style")
-            styleTag.setAttribute("id", id)
+            styleTag = document.createElement('style')
+            styleTag.setAttribute('id', id)
             document.head.appendChild(styleTag)
           }
           styleTag.innerText = newStyle
         }
       }
 
-      const chalkHandler = getHandler("chalk", "chalk-style")
+      const chalkHandler = getHandler('chalk', 'chalk-style')
 
       if (!this.chalk) {
         const url = `https://unpkg.com/element-ui@${version}/lib/theme-chalk/index.css`
-        this.getCSSString(url, chalkHandler, "chalk")
+        this.getCSSString(url, chalkHandler, 'chalk')
       } else {
         chalkHandler()
       }
 
-      const styles = [].slice
-        .call(document.querySelectorAll("style"))
-        .filter((style) => {
-          const text = style.innerText
-          return (
-            new RegExp(this.vuexTheme, "i").test(text) &&
-            !/Chalk Variables/.test(text)
-          )
-        })
-      styles.forEach((style) => {
+      const styles = [].slice.call(document.querySelectorAll('style')).filter(style => {
+        const text = style.innerText
+        return new RegExp(this.vuexTheme, 'i').test(text) && !/Chalk Variables/.test(text)
+      })
+      styles.forEach(style => {
         const { innerText } = style
-        if (typeof innerText !== "string") return
-        style.innerText = this.updateStyle(
-          innerText,
-          originalCluster,
-          themeCluster
-        )
+        if (typeof innerText !== 'string') return
+        style.innerText = this.updateStyle(innerText, originalCluster, themeCluster)
       })
     },
     updateStyle(style, oldCluster, newCluster) {
       let newStyle = style
       oldCluster.forEach((color, index) => {
-        newStyle = newStyle.replace(new RegExp(color, "ig"), newCluster[index])
+        newStyle = newStyle.replace(new RegExp(color, 'ig'), newCluster[index])
       })
       return newStyle
     },
@@ -99,7 +82,7 @@ export default {
 
         if (tint === 0) {
           // when primary color is in its rgb space
-          return [red, green, blue].join(",")
+          return [red, green, blue].join(',')
         } else {
           red += Math.round(tint * (255 - red))
           green += Math.round(tint * (255 - green))
@@ -140,17 +123,17 @@ export default {
       const xhr = new XMLHttpRequest()
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
-          this[variable] = xhr.responseText.replace(/@font-face{[^}]+}/, "")
+          this[variable] = xhr.responseText.replace(/@font-face{[^}]+}/, '')
           callback()
         }
       }
-      xhr.open("GET", url)
+      xhr.open('GET', url)
       xhr.send()
-    }
+    },
   },
   watch: {
-    theme(val, oldVal) {}
-  }
+    theme(val, oldVal) {},
+  },
 }
 </script>
 <style lang="scss" scoped>

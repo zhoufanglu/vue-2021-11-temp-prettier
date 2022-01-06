@@ -3,12 +3,13 @@
  */
 
 //接口统一使用dynamicUrl变量
-const dynamicUrl = process.env.VUE_APP_SERVER_URL // 接口ip
+//const dynamicUrl = process.env.VUE_APP_SERVER_URL // 接口ip
+const dynamicUrl = 'http://127.0.0.1:7001' // 接口ip
 
 //console.log('api-path', process.env.VUE_APP_SERVER_URL)
 
 const base = {
-  dynamicUrl: dynamicUrl //接口请求地址
+  dynamicUrl: dynamicUrl, //接口请求地址
 }
 
 export default base

@@ -5,14 +5,14 @@
 </template>
 <script>
 export default {
-  name: "",
+  name: '',
   components: {},
   data() {
     return {}
   },
   created() {},
   mounted() {},
-  methods: {}
+  methods: {},
 }
 </script>
 <style lang="scss" scoped>

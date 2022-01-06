@@ -13,16 +13,15 @@ $font_tipSize: 12px; //消息、提示
 
 /* 按钮 */
 $button_noraml_bgcolor: #0099a7; //按钮
-$button_noraml_hover_bgcolor: #007A85; //按钮hover
-$button_red_bgcolor: #E8645F; //按钮
-$button_red_hover_bgcolor: #B9504C; //按钮hover
-
+$button_noraml_hover_bgcolor: #007a85; //按钮hover
+$button_red_bgcolor: #e8645f; //按钮
+$button_red_hover_bgcolor: #b9504c; //按钮hover
 
 /* 色彩 */
 // 主色
 $color_black: #2c3241;
 $color_blue: #0099a7;
-$color_blue_light: #12C09B;
+$color_blue_light: #12c09b;
 //页面背景色
 $color_page_bg: #f9f9f9;
 
@@ -37,7 +36,6 @@ $color_priceDetal: #f9b8b5; //价格明细
 $color_priceDetal_bg: #fffbf7; //价格明细底色
 $color_select_bg: #f7f8f9; //选项框底色
 
-
 //字体颜色
 $color_title: #2c3241; //标题
 $color_subTitle: #5d6884; //副标题
@@ -50,17 +48,17 @@ $color_border: #d3dae2;
 $theme: #677cfd;
 
 //分值颜色
-.p-danger-color{
+.p-danger-color {
   color: $danger;
 }
-.p-warning-color{
+.p-warning-color {
   color: $warning;
 }
-.p-normal-color{
+.p-normal-color {
   color: $balanced;
 }
 
-.link{
+.link {
   cursor: pointer;
   color: $theme;
 }

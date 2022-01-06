@@ -1,27 +1,27 @@
-import Vue from "vue"
-import App from "./App.vue"
-import router from "./router"
-import store from "./store"
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
+import store from './store'
 
-import "@/permission"
+import '@/permission'
 
 Vue.config.productionTip = false
 
 //element
-import "@/config/element.js"
+import '@/config/element.js'
 //api
-import api from "@/request/api/index"
+import api from '@/request/api/index'
 Vue.prototype.$api = api
 //mock
-import { mockFn } from "@/mock/mock.js"
-mockFn(true)
+import { mockFn } from '@/mock/mock.js'
+mockFn(false)
 
-import "@/util/rem"
+import '@/util/rem'
 
-console.log("-----------环境变量-当前环境-----------", process.env.VUE_APP_ENV)
+console.log('-----------环境变量-当前环境-----------', process.env.VUE_APP_ENV)
 
 new Vue({
   router,
   store,
-  render: (h) => h(App)
-}).$mount("#app")
+  render: h => h(App),
+}).$mount('#app')
