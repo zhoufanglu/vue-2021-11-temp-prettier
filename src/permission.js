@@ -9,8 +9,8 @@ import { Message } from 'element-ui'
 const whiteList = ['/login', '/404']
 
 //nprogress
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
+/*import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'*/
 
 //添加路由测试
 router.addRoute('Home', {
@@ -23,7 +23,9 @@ console.log(21, router.getRoutes())
 // 在守卫中访问元信息
 router.beforeEach((to, from, next) => {
   //nprogress
+/*
   NProgress.start()
+*/
   //获取token
   let { token } = store.state.mod_1.userInfo
 
@@ -48,5 +50,7 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach(() => {
+/*
   NProgress.done()
+*/
 })

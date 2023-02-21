@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from '@/views/Home'
+import Login from '@/views/Login.vue'
+import ChooseCourse from '@/views/ChooseCourse.vue'
 
 import module_1 from '@/router/module/module_1'
 import module_2 from '@/router/module/module_2'
@@ -10,15 +12,29 @@ Vue.use(VueRouter)
 
 const constantRoutes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home,
+    path: '/login',
+    name: 'Login',
+    component: Login,
+    // redirect: '/login',
     meta: {
       requireAuth: false, // 在需要登录的路由的meta中添加响应的权限标识
     },
   },
-  ...module_1,
-  ...module_2,
+  {
+    path: '/choose-course',
+    name: 'choose-course',
+    component: ChooseCourse,
+    // redirect: '/login',
+    meta: {
+      requireAuth: false, // 在需要登录的路由的meta中添加响应的权限标识
+    },
+  },
+  {
+    path: '/',
+    redirect: '/login',
+  },
+  /* ...module_1,
+  ...module_2,*/
 ]
 
 const createRouter = () =>

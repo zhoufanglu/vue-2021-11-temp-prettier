@@ -6,7 +6,7 @@ function setRem() {
   const scale = document.documentElement.clientWidth / 1920
   // 设置页面根节点字体大小, 字体大小最小为12
   let fontSize = baseSize * Math.min(scale, 2) > 12 ? baseSize * Math.min(scale, 2) : 12
-  document.documentElement.style.fontSize = fontSize + 'px'
+  document.documentElement.style.fontSize = 16 + 'px'
 }
 //初始化
 setRem()
